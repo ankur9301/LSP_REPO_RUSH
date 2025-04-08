@@ -83,9 +83,9 @@ public class IntegerSet {
      * @return the largest integer in the set
      * @throws IllegalStateException if the set is empty
      */
-    public int largest() {
+    public int largest() throws IntegerSetException {
         if (isEmpty()) {
-            throw new IllegalStateException("Set is empty.");
+            throw new IntegerSetException("Set is empty.");
         }
         int max = set.get(0);
         for (int num : set) {
@@ -96,15 +96,9 @@ public class IntegerSet {
         return max;
     }
 
-    /**
-     * Returns the smallest item in the set.
-     *
-     * @return the smallest integer in the set
-     * @throws IllegalStateException if the set is empty
-     */
-    public int smallest() {
+    public int smallest() throws IntegerSetException {
         if (isEmpty()) {
-            throw new IllegalStateException("Set is empty.");
+            throw new IntegerSetException("Set is empty.");
         }
         int min = set.get(0);
         for (int num : set) {
@@ -114,6 +108,7 @@ public class IntegerSet {
         }
         return min;
     }
+
 
     /**
      * Adds an integer to the set. If the integer already exists in the set,
